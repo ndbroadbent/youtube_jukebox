@@ -1,0 +1,44 @@
+h3. YoutubeJukebox in Ruby
+
+A ruby script that downloads youtube videos, converts them to mp3, and plays them in a vlc playlist as they are processed.
+Will be used as a starting point for an MPD based system.
+
+Note: It's still a little bit buggy sometimes, but usally works fine.
+
+h3. Requirements
+
+* linux software
+** ffmpeg
+** lame
+** youtube-dl
+** libmp3lame (or libavcodec-unstripped-52 for ubuntu)
+
+bc. $ sudo apt-get install lame ffmpeg libavcodec-unstripped-52 youtube-dl
+
+* Ruby Gems
+** "youtube-g":http://github.com/tmm1/youtube-g
+
+bc. $ sudo gem install youtube-g
+
+h3. Usage
+
+bc. $ ./youtubejukebox.rb "shapeshifter"
+
+(0) - Shapeshifter - Bring Change (Official Music Video)
+(1) - Shapeshifter - Electric Dream
+(2) - HORSE The Band - Shapeshift (Official Music Clip)
+(3) - Shapeshifter - Long White Cloud
+(4) - Shapeshifter - When I Return feat. Ladi6
+(5) - shapeshifter - dutchies
+(6) - Shapeshifter - One
+(7) - The Shapeshifters - Chime
+(8) - The Shapeshifters - Back To Basics
+(9) - BEST SHAPESHIFTING EVIDENCE TO DATE
+Please enter the number of the video that looks most relevant: 0
+
+===== Title: Shapeshifter - Electric Dream
+===== URL: http://www.youtube.com/v/DRGo-Zp8_3A
+===== Starting flv download, on-the-fly conversion, then starting vlc & queuing track...
+
+Please enter a query to search for a track: _
+
