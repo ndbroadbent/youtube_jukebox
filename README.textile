@@ -17,8 +17,9 @@ bc. $ sudo apt-get install lame ffmpeg libavcodec-unstripped-52 youtube-dl
 
 * Ruby Gems
 ** "youtube-g":http://github.com/tmm1/youtube-g
+** highline
 
-bc. $ sudo gem install youtube-g
+bc. $ sudo gem install highline youtube-g
 
 h3. Usage
 
