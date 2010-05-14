@@ -38,7 +38,7 @@ Please enter a query to search for a track: shapeshifter
 (8) - The Shapeshifters - Back To Basics
 (9) - BEST SHAPESHIFTING EVIDENCE TO DATE
 
-Press 'x' to search for something else. <b or n> to change page of results.    |   page 1 of 5
+Press 'x' to search for something else. < b or n > to change page of results.    |   page 1 of 5
 Please enter the number of your selected video: 1
 
 
