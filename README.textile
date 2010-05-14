@@ -3,7 +3,7 @@ h3. YoutubeJukebox in Ruby
 A ruby script that downloads youtube videos, converts them to mp3, and plays them in a vlc playlist as they are processed.
 Will be used as a starting point for an MPD based system.
 
-Note: It's still a little bit buggy sometimes, but usually works fine.
+Note: It can be a little buggy sometimes, but this is usually caused when the video isnt downloaded fast enough. A future version will hopefully include a processing queue to limit the number of videos processing at any one time. Til then, I wouldn't recommending doing more than 3 at once.
 
 h3. Requirements
 
