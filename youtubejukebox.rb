@@ -10,18 +10,15 @@ require 'youtube_g'
 require "highline/system_extensions"
 require 'highline/import'
 include HighLine::SystemExtensions
-
-HighLine.track_eof = false
+HighLine.track_eof = false   # Fixes weird EOF 'bug'.
 
 @youtube = YouTubeG::Client.new
 
+@download_folder = "./downloads"
 @download_buffer = 15 #sec
 @conversion_buffer = 4 #sec
-
 @max_simultaneous_conversions = 3
-@current_conversions = 0
-
-@download_folder = "./downloads"
+@max_search_results = 50
 
 def download_convert_play(video)
   # Downloads and converts a given youtube-g video, and adds the mp3 to vlc.
@@ -62,6 +59,7 @@ def isint(str)
    return str =~ /^[-+]?[0-9]+$/
 end
 
+@current_conversions = 0
 
 # If a commandline query was given, perform the search...
 get_search_results(ARGV[0]) if ARGV[0]
@@ -71,7 +69,7 @@ def get_search_results(query, page = 1)
   char = 0
 
   puts "Searching for '#{query}'..."
-  videos = @youtube.videos_by(:query => query).videos
+  videos = @youtube.videos_by(:query => query, :per_page => @max_search_results).videos
   if videos.size == 0
     puts "No videos found.\n"
     return false
@@ -90,8 +88,7 @@ def get_search_results(query, page = 1)
     char = get_character
 
     if char.chr == "n" or char.chr == "b"
-      page += 1 if char.chr == "n"
-      page -= 1 if char.chr == "b"
+      char.chr == "n" ? page += 1 : page -= 1
       page_offset = ((page-1)*10)
       page = total_pages if page_offset < 0
       page = 1 if page_offset > videos.size
