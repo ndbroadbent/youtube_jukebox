@@ -82,7 +82,7 @@ class YoutubeJukebox
       end
       total_pages = videos.size / 10 + (videos.size % 10 == 0 ? 0 : 1)
       puts "\nPress 'x' to search for something else. <b or n> to change page of results.    |   page #{page} of #{total_pages}"
-      print "Please enter the number of the video that looks most relevant: "
+      print "Please enter the number of your selected video: "
       char = get_character
       puts char.chr
       # Change the page if user enters 'n' or 'b'

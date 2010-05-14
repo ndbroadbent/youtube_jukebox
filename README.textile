@@ -23,7 +23,9 @@ bc. $ sudo gem install highline youtube-g
 
 h3. Usage
 
-bc. $ ./youtubejukebox.rb "shapeshifter"
+bc. $ ./youtubejukebox.rb
+
+Please enter a query to search for a track: shapeshifter
 
 (0) - Shapeshifter - Bring Change (Official Music Video)
 (1) - Shapeshifter - Electric Dream
@@ -35,11 +37,15 @@ bc. $ ./youtubejukebox.rb "shapeshifter"
 (7) - The Shapeshifters - Chime
 (8) - The Shapeshifters - Back To Basics
 (9) - BEST SHAPESHIFTING EVIDENCE TO DATE
-Please enter the number of the video that looks most relevant: 0
+
+Press 'x' to search for something else. <b or n> to change page of results.    |   page 1 of 5
+Please enter the number of your selected video: 1
+
 
 ===== Title: Shapeshifter - Electric Dream
 ===== URL: http://www.youtube.com/v/DRGo-Zp8_3A
 ===== Starting flv download, on-the-fly conversion, then starting vlc & queuing track...
 
-Please enter a query to search for a track: _
+
+Please enter the number of your selected video: _
 
