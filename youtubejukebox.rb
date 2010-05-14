@@ -26,9 +26,9 @@ class YoutubeJukebox
     @download_folder = "./downloads"
     @download_buffer = 15 #sec
     @conversion_buffer = 4 #sec
-    @max_simultaneous_conversions = 3
     @max_search_results = 50
-    @current_conversions = 0
+#    @max_simultaneous_conversions = 3
+#    @current_conversions = 0
   end
 
   def isint(str)
@@ -49,11 +49,6 @@ class YoutubeJukebox
 
     # Layered threads for all of the system calls.
     Thread.new {
-      @current_conversions += 1
-      # sleep while the no. of conversions is above the max allowed simultaneous conversions
-      while @current_conversions >= @max_simultaneous_conversions
-        sleep 5
-      end
       Thread.new {
         system("youtube-dl --output=\"#{download_file}\" --format=18 \"#{url}\" > /dev/null 2>&1")
       }
@@ -61,7 +56,6 @@ class YoutubeJukebox
       Thread.new {
         # also deletes the downloaded flv file after conversion.
         `echo \"\" | ffmpeg -re -i \"#{download_file}\" -acodec libmp3lame -ac 2 -ab 128k -vn -y \"#{output_file}\" > /dev/null 2>&1 && rm \"#{download_file}\"`
-        @current_conversions -= 1
       }
       sleep @conversion_buffer
       Thread.new {
